@@ -18,7 +18,7 @@ public class Postupload {
     public static void main(String[] args) {
 
         // Step 01: Set path to ChromeDriver
-        System.setProperty("webdriver.chrome.driver", "Your driver path");
+        System.setProperty("webdriver.chrome.driver", "Your_driver_path");
 
         // Step 02: Maximize browser
         ChromeOptions options = new ChromeOptions();
@@ -50,7 +50,7 @@ public class Postupload {
             Thread.sleep(2000);
 
             // Step 07: Upload image
-            String imagePath = "C:\\Users\\Acer\\Desktop\\instagram\\src\\image\\pet1.jpg";
+            String imagePath = "YOUR_PATH\\instagram\\src\\image\\pet1.jpg";
             StringSelection selection = new StringSelection(imagePath);
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
 
@@ -91,14 +91,14 @@ public class Postupload {
             takeScreenshot(driver, "7_post_shared");
 
             // Step 11: Go to profile
-            driver.get("https://www.instagram.com/sandu.vihanga22/");
+            driver.get("https://www.instagram.com/YOUR_USERNAME/");
             System.out.println("Navigated to profile.");
             Thread.sleep(5000);
             takeScreenshot(driver, "8_profile");
 
             // Step 12: Open latest post
             WebElement uploadedPost = wait.until(ExpectedConditions.elementToBeClickable(
-                    By.xpath("//a[contains(@href, '/sandu.vihanga22/p/')]")
+                    By.xpath("//a[contains(@href, '/YOUR_USERNAME/p/')]")
             ));
             uploadedPost.click();
             System.out.println("Opened uploaded post.");
@@ -121,7 +121,7 @@ public class Postupload {
         try {
             TakesScreenshot ts = (TakesScreenshot) driver;
             File src = ts.getScreenshotAs(OutputType.FILE);
-            File dest = new File("C:\\Users\\Acer\\Desktop\\instagram\\src\\screenshots" + fileName + ".png");
+            File dest = new File("YOUR_PATH\\instagram\\src\\screenshots" + fileName + ".png");
             org.apache.commons.io.FileUtils.copyFile(src, dest);
             System.out.println("Screenshot saved: " + dest.getAbsolutePath());
         } catch (Exception e) {
@@ -130,3 +130,4 @@ public class Postupload {
         }
     }
 }
+
